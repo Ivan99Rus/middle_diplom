@@ -1,8 +1,6 @@
 const signUpFreeSession = () => {
   const freeVisit = document.querySelector('.free-visit'),
-    freeVisitPopup = document.getElementById('free_visit_form'),
-    closeForm = document.querySelector('.close-form'),
-    overlay = freeVisitPopup.querySelector('.overlay');
+    freeVisitPopup = document.getElementById('free_visit_form');
 
   freeVisit.addEventListener('click', () => {
     freeVisitPopup.classList.add('active-block');
