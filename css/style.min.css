@@ -306,7 +306,7 @@ html#schelkovo .head-slider .slider-image img {
 
 html#mozaika .main-slider .slide .slide-text .validity,
 html#schelkovo .main-slider .slide .slide-text .validity {
-    display: none
+    display: none;
 }
 
 html#mozaika .main-slider .slide .slide-text .offer-head .top,
