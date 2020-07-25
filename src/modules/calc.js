@@ -2,7 +2,9 @@ const calc = () => {
   const cardOrder = document.getElementById('card_order'),
     clubs = cardOrder.querySelectorAll('.club input'),
     time = cardOrder.querySelectorAll('.time input'),
-    priceTotal = document.getElementById('price-total');
+    promo = cardOrder.querySelector('.price-message input'),
+    priceTotal = document.getElementById('price-total'),
+    promoText = 'ТЕЛО2019';
 
   const priceList = {
     'mozaika': {
@@ -21,7 +23,9 @@ const calc = () => {
     }
   };
 
-  cardOrder.addEventListener('click', e => {
+  const promoPrice = (oldPrice = priceTotal.textContent) => priceTotal.textContent = Math.ceil(oldPrice / 100 * 70);
+
+  cardOrder.addEventListener('change', e => {
     let index,
       clubName;
 
@@ -43,8 +47,17 @@ const calc = () => {
       } else if (e.target.name === 'club-name') {
         clubName = e.target.value;
       }
-    };
-    priceTotal.textContent = priceList[clubName][index];
+
+      if (e.target.parentNode.classList.contains('price-message')) {
+        e.target.value === promoText ? promoPrice() : alert('Такого кода не существует');
+      }
+
+      if (promo.value === promoText) {
+        promoPrice(priceList[clubName][index]);
+      } else {
+        priceTotal.textContent = priceList[clubName][index];
+      }
+    }
   });
 };
 
