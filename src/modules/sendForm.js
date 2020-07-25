@@ -8,7 +8,8 @@ const sendForm = (form) => {
 	statusMessage.style.cssText = 'font-size: 2rem;';
 
 	if (form.id === 'form2' ||
-		form.id === 'form1') {
+		form.id === 'form1' ||
+		form.id === 'footer_form') {
 		statusMessage.style.color = '#FFFFFF';
 	}
 
@@ -22,6 +23,14 @@ const sendForm = (form) => {
 			e.type !== 'submit' &&
 			e.type !== 'hidden'
 		);
+
+		for (let key in elementsForm) {
+			let elem = elementsForm[key];
+			if (elem.parentNode.classList.contains('club') && !elem.checked) {
+				delete elementsForm[key];
+			}
+		}
+		elementsForm = elementsForm.filter(String);
 
 		let valid = true;
 
@@ -70,17 +79,21 @@ const sendForm = (form) => {
 
 		if (valid) {
 			form.appendChild(statusMessage);
+			console.log('form: ', form);
+
 			statusMessage.textContent = laodMessage;
 
 			postData(formData)
 				.then((response) => {
 					if (response.status !== 200) {
-						if (form.id === 'banner-form') {
+						if (form.id === 'banner-form' ||
+							form.id === 'footer_form') {
 							mainForm(false);
 							statusMessage.remove();
 						}
 						throw new Error('status network not 200');
-					} else if (form.id === 'banner-form') {
+					} else if (form.id === 'banner-form' ||
+						form.id === 'footer_form') {
 						mainForm(true);
 						statusMessage.remove();
 					} else {
@@ -88,7 +101,8 @@ const sendForm = (form) => {
 					}
 				})
 				.catch((error) => {
-					if (form.id !== 'banner-form') {
+					if (form.id !== 'banner-form' ||
+						form.id !== 'footer_form') {
 						statusMessage.textContent = erorMessage;
 					}
 					console.error(error);
