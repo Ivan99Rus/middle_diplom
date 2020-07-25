@@ -7,6 +7,7 @@ import mainSlider from './modules/mainSlider';
 import sendForm from './modules/sendForm';
 import validForm from './modules/validForm';
 import fixedMenu from './modules/fixedMenu';
+import toggleMenu from './modules/toggleMenu';
 
 toTop();
 dropdownMenu();
@@ -21,3 +22,4 @@ validForm('#form1', '#callback_form1-phone');
 validForm('#form2', '#callback_form2-phone');
 validForm('#banner-form', '#phone');
 fixedMenu();
+toggleMenu();
