@@ -8,6 +8,7 @@ import sendForm from './modules/sendForm';
 import validForm from './modules/validForm';
 import fixedMenu from './modules/fixedMenu';
 import toggleMenu from './modules/toggleMenu';
+import calc from './modules/calc';
 
 toTop();
 dropdownMenu();
@@ -25,3 +26,4 @@ validForm('#banner-form', '#phone');
 validForm('#footer_form', '#callback_footer_form-phone');
 fixedMenu();
 toggleMenu();
+calc();

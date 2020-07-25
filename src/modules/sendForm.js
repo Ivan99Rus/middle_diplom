@@ -79,7 +79,6 @@ const sendForm = (form) => {
 
 		if (valid) {
 			form.appendChild(statusMessage);
-			console.log('form: ', form);
 
 			statusMessage.textContent = laodMessage;
 
