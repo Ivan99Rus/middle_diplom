@@ -9,6 +9,7 @@ import validForm from './modules/validForm';
 import fixedMenu from './modules/fixedMenu';
 import toggleMenu from './modules/toggleMenu';
 import calc from './modules/calc';
+import gallerySlider from './modules/gallerySlider';
 
 toTop();
 dropdownMenu();
@@ -27,3 +28,4 @@ validForm('#footer_form', '#callback_footer_form-phone');
 fixedMenu();
 toggleMenu();
 calc();
+gallerySlider();
