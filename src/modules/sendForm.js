@@ -17,6 +17,10 @@ const sendForm = (form) => {
 		e.preventDefault();
 
 		const formData = new FormData(form);
+		let body = {};
+		formData.forEach((val, key) => {
+			body[key] = val;
+		});
 
 		let elementsForm = [...form.elements].filter(
 			e => e.type.toLowerCase() !== 'button' &&
@@ -66,13 +70,13 @@ const sendForm = (form) => {
 			}
 		});
 
-		const postData = (formData) => {
+		const postData = (body) => {
 			return fetch('server.php', {
 				method: 'POST',
 				headers: {
 					'Content-Type': 'application/json'
 				},
-				body: formData
+				body: JSON.stringify(body)
 			});
 		};
 
@@ -94,7 +98,7 @@ const sendForm = (form) => {
 
 			statusMessage.textContent = laodMessage;
 
-			postData(formData)
+			postData(body)
 				.then((response) => {
 					if (response.status !== 200) {
 						if (form.id === 'banner-form' ||
@@ -102,6 +106,7 @@ const sendForm = (form) => {
 							mainForm(false);
 							statusMessage.remove();
 						}
+
 						throw new Error('status network not 200');
 					} else if (form.id === 'banner-form' ||
 						form.id === 'footer_form') {

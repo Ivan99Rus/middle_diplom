@@ -6,9 +6,7 @@ const mainForm = (flag) => {
 
 	bannerPopup.classList.add('active-block');
 
-	if (flag) {
-		console.log('ok');
-	} else {
+	if (!flag) {
 		formHeader.textContent = 'Упс...';
 		formText.textContent = `Ваша заявка не отправлена.
 														Попробуйте повторить попытку позже!`;
