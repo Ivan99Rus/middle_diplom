@@ -12,11 +12,15 @@ import calc from './modules/calc';
 import gallerySlider from './modules/gallerySlider';
 import servicesSlider from './modules/servicesSlider';
 
+const locationName = location.pathname.slice(1);
+
 toTop();
 dropdownMenu();
 signUpFreeSession();
 callbackForm();
-gift();
+if (locationName === 'index.html') {
+  gift();
+}
 mainSlider();
 sendForm(document.getElementById('form1'));
 sendForm(document.getElementById('form2'));
@@ -30,4 +34,4 @@ fixedMenu();
 toggleMenu();
 calc();
 gallerySlider();
-servicesSlider()
+servicesSlider();
