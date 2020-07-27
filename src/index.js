@@ -10,6 +10,7 @@ import fixedMenu from './modules/fixedMenu';
 import toggleMenu from './modules/toggleMenu';
 import calc from './modules/calc';
 import gallerySlider from './modules/gallerySlider';
+import servicesSlider from './modules/servicesSlider';
 
 toTop();
 dropdownMenu();
@@ -29,3 +30,4 @@ fixedMenu();
 toggleMenu();
 calc();
 gallerySlider();
+servicesSlider()

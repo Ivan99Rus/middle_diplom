@@ -1542,8 +1542,12 @@ nav.popup-menu .close-menu-btn img {
 .services-slider {
     display: flex;
     margin: 0 auto;
-    padding-left: 15px;
-    padding-right: 15px
+    /*     padding-left: 15px;
+    padding-right: 15px */
+}
+
+#services .wrapper {
+    position: relative;
 }
 
 .services-slider .slide {
@@ -1554,7 +1558,8 @@ nav.popup-menu .close-menu-btn img {
 }
 
 .services-slider .slide img {
-    margin: 0 auto 19px
+    margin: 0 auto 19px;
+
 }
 
 .services-slider .slide h6 {
@@ -1593,12 +1598,45 @@ nav.popup-menu .close-menu-btn img {
     padding-top: 11px
 }
 
+.services-slider-arrow {
+    position: absolute;
+    top: 45%;
+    transform: translate(0, -50%);
+    z-index: 100;
+    cursor: pointer;
+    display: block;
+    width: 36px;
+    height: 37px;
+    background-color: #f4c71b;
+    border-radius: 50%;
+    text-align: center;
+    padding-top: 11px
+}
+
+.services-slider-arrow__prev {
+    background: #f4c71b url('../images/arrow-left.png') center no-repeat;
+    left: 2px;
+}
+
+.services-slider-arrow__next {
+    right: 2px;
+    background: #f4c71b url('../images/arrow-right.png') center no-repeat;
+}
+
 .services-slider .slider-arrow.prev {
-    left: 2px
+    left: 2px;
+}
+
+.services-slider .slider-arrow.prev span {
+    background: #f4c71b url('../images/arrow-left.png') center no-repeat;
 }
 
 .services-slider .slider-arrow.next {
-    right: 2px
+    right: 2px;
+}
+
+.services-slider .slider-arrow.next span {
+    background: #f4c71b url('../images/arrow-right.png') center no-repeat;
 }
 
 #gallery {
