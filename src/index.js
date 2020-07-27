@@ -11,6 +11,7 @@ import toggleMenu from './modules/toggleMenu';
 import calc from './modules/calc';
 import gallerySlider from './modules/gallerySlider';
 import servicesSlider from './modules/servicesSlider';
+import scrollMenu from './modules/scrollMenu';
 
 const locationName = location.pathname;
 
@@ -35,3 +36,4 @@ toggleMenu();
 calc();
 gallerySlider();
 servicesSlider();
+scrollMenu();
