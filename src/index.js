@@ -12,13 +12,13 @@ import calc from './modules/calc';
 import gallerySlider from './modules/gallerySlider';
 import servicesSlider from './modules/servicesSlider';
 
-const locationName = location.pathname.slice(1);
+const locationName = location.pathname;
 
 toTop();
 dropdownMenu();
 signUpFreeSession();
 callbackForm();
-if (locationName === 'index.html') {
+if (locationName === '/index.html' || locationName === '/') {
   gift();
 }
 mainSlider();
