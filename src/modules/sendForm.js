@@ -38,7 +38,19 @@ const sendForm = (form) => {
 			try {
 				if (e.type === 'checkbox') {
 					if (!e.checked) {
-						alert('Необходимо подтвердить согласие!');
+						const labelCheck = e.parentNode.querySelector('label');
+						labelCheck.insertAdjacentHTML('beforeEnd', '<br/> (НЕОБХОДИМО СОГЛАСИЕ)');
+
+						labelCheck.style.color = 'red';
+						labelCheck.style.fontStyle = 'italic';
+
+						e.addEventListener('change', () => {
+							if (e.checked) {
+								labelCheck.textContent = `Я СОГЛАСЕН НА ОБРАБОТКУ ПЕРСОНАЛЬНЫХ ДАННЫХ`;
+								labelCheck.style.color = '#fff';
+								labelCheck.style.fontStyle = 'normal';
+							}
+						});
 						throw new Error('Необходимо подтвердить согласие');
 					}
 				}
@@ -48,7 +60,7 @@ const sendForm = (form) => {
 				}
 			} catch (error) {
 				if (error) {
-					console.error(error);
+					//console.error(error);
 					valid = false;
 				}
 			}
