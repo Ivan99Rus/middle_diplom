@@ -41,7 +41,8 @@ const calc = () => {
       }
     });
 
-    if (e.target.localName === 'input') {
+    if (e.target.localName === 'input' && location.pathname === '/index.html' || location.pathname === '/') {
+      e.target.value = e.target.value.toUpperCase();
       if (e.target.name === 'card-type') {
         index = e.target.value;
       } else if (e.target.name === 'club-name') {
