@@ -1,12 +1,18 @@
-const mainForm = (flag) => {
-	const bannerPopup = document.getElementById('thanks'),
-		formContent = bannerPopup.querySelector('.form-content'),
-		formHeader = formContent.querySelector('h4'),
-		formText = formContent.querySelector('p');
+const mainForm = (selector, flag) => {
+	let bannerPopup = document.querySelector(selector),
+		formText,
+		formHeader;
 
+	if (selector !== '#thanks') {
+		bannerPopup.parentNode.parentNode.parentNode.classList.remove('active-block');
+		bannerPopup = document.querySelector('#thanks');
+		bannerPopup.classList.add('active-block');
+	}
+	formText = bannerPopup.querySelector('p');
 	bannerPopup.classList.add('active-block');
 
 	if (!flag) {
+		formHeader = bannerPopup.querySelector('h4');
 		formHeader.textContent = 'Упс...';
 		formText.textContent = `Ваша заявка не отправлена.
 														Попробуйте повторить попытку позже!`;

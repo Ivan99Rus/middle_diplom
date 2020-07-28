@@ -1,4 +1,5 @@
 import mainForm from './mainForm';
+
 const sendForm = (form) => {
 	const erorMessage = 'Что-то пошло не так...',
 		laodMessage = 'Загрузка...',
@@ -64,7 +65,6 @@ const sendForm = (form) => {
 				}
 			} catch (error) {
 				if (error) {
-					//console.error(error);
 					valid = false;
 				}
 			}
@@ -101,16 +101,28 @@ const sendForm = (form) => {
 			postData(body)
 				.then((response) => {
 					if (response.status !== 200) {
-						if (form.id === 'banner-form' ||
-							form.id === 'footer_form') {
-							mainForm(false);
+						if (
+							form.id === 'banner-form' ||
+							form.id === 'footer_form'
+						) {
+							mainForm('#thanks', false);
+							statusMessage.remove();
+						} else if (
+							form.id === 'form1' ||
+							form.id === 'form2'
+						) {
+							mainForm(`#${form.id}`, false);
 							statusMessage.remove();
 						}
 
 						throw new Error('status network not 200');
-					} else if (form.id === 'banner-form' ||
-						form.id === 'footer_form') {
-						mainForm(true);
+					} else if (
+						form.id === 'banner-form' ||
+						form.id === 'footer_form' ||
+						form.id === 'form1' ||
+						form.id === 'form2'
+					) {
+						mainForm('thanks', true);
 						statusMessage.remove();
 					} else {
 						statusMessage.textContent = successMessage;
