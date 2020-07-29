@@ -4,7 +4,9 @@ const mainForm = (selector, flag) => {
 		formHeader;
 
 	if (selector !== '#thanks') {
-		bannerPopup.parentNode.parentNode.parentNode.classList.remove('active-block');
+		if (bannerPopup.parentNode.parentNode.parentNode) {
+			bannerPopup.parentNode.parentNode.parentNode.classList.remove('active-block');
+		}
 		bannerPopup = document.querySelector('#thanks');
 		bannerPopup.classList.add('active-block');
 	}

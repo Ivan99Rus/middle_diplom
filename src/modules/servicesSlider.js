@@ -31,8 +31,9 @@ const servicesSlider = () => {
       },
     ]
   });
-
-  serviceSlider.init();
+  try {
+    serviceSlider.init();
+  } catch (error) {}
 };
 
 class ServicesSlider {

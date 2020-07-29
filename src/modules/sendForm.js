@@ -31,8 +31,10 @@ const sendForm = (form) => {
 
 		for (let key in elementsForm) {
 			let elem = elementsForm[key];
-			if (elem.parentNode.classList.contains('club') && !elem.checked) {
-				delete elementsForm[key];
+			if (elem.parentNode) {
+				if (elem.parentNode.classList.contains('club') && !elem.checked) {
+					delete elementsForm[key];
+				}
 			}
 		}
 		elementsForm = elementsForm.filter(String);
@@ -97,6 +99,10 @@ const sendForm = (form) => {
 					el.checked = true;
 				}
 
+				if (el.id === 't1') {
+					el.checked = true;
+				}
+
 				if (
 					el.tagName.toLowerCase() !== 'button' &&
 					el.type !== 'button' &&
@@ -129,7 +135,6 @@ const sendForm = (form) => {
 							mainForm(`#${form.id}`, false);
 							statusMessage.remove();
 						}
-
 						throw new Error('status network not 200');
 					} else if (
 						form.id === 'banner-form' ||
@@ -137,7 +142,7 @@ const sendForm = (form) => {
 						form.id === 'form1' ||
 						form.id === 'form2'
 					) {
-						mainForm('thanks', true);
+						mainForm('#thanks', true);
 						statusMessage.remove();
 					} else {
 						statusMessage.textContent = successMessage;
