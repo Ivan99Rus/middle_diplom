@@ -13,7 +13,8 @@ import gallerySlider from './modules/gallerySlider';
 import servicesSlider from './modules/servicesSlider';
 import scrollMenu from './modules/scrollMenu';
 
-const locationName = location.pathname;
+const locationName =
+  location.pathname.slice(location.pathname.lastIndexOf('/'));
 
 toTop();
 dropdownMenu();

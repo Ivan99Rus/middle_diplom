@@ -4,7 +4,8 @@ const calc = () => {
     time = cardOrder.querySelectorAll('.time input'),
     promo = cardOrder.querySelector('.price-message input'),
     priceTotal = document.getElementById('price-total'),
-    promoText = 'ТЕЛО2019';
+    promoText = 'ТЕЛО2019',
+    locationName = location.pathname.slice(location.pathname.lastIndexOf('/'));
 
   const priceList = {
     'mozaika': {
@@ -41,7 +42,7 @@ const calc = () => {
       }
     });
 
-    if (e.target.localName === 'input' && location.pathname === '/index.html' || location.pathname === '/') {
+    if (e.target.localName === 'input' && locationName === '/index.html' || locationName === '/') {
       e.target.value = e.target.value.toUpperCase();
       if (e.target.name === 'card-type') {
         index = e.target.value;
