@@ -46,9 +46,7 @@ const calc = () => {
       e.target.value = e.target.value.toUpperCase();
       if (e.target.name === 'card-type') {
         index = e.target.value;
-      } else if (e.target.name === 'club-name') {
-        clubName = e.target.value;
-      }
+      } else if (e.target.name === 'club-name') {}
 
       if (e.target.parentNode.classList.contains('price-message')) {
         e.target.value === promoText ? promoPrice() : alert('Такого кода не существует');
@@ -57,7 +55,7 @@ const calc = () => {
       if (promo.value === promoText) {
         promoPrice(priceList[clubName][index]);
       } else {
-        priceTotal.textContent = priceList[clubName][index];
+        priceTotal.textContent = priceList[clubName.toLowerCase()][index];
       }
     }
   });
