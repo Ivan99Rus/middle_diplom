@@ -54,6 +54,9 @@ const sendForm = (form) => {
 								labelCheck.textContent = `Я СОГЛАСЕН НА ОБРАБОТКУ ПЕРСОНАЛЬНЫХ ДАННЫХ`;
 								labelCheck.style.color = '#fff';
 								labelCheck.style.fontStyle = 'normal';
+								if (e.id === 'card_check') {
+									labelCheck.style.color = '#94939a';
+								}
 							}
 						});
 						throw new Error('Необходимо подтвердить согласие');
@@ -82,6 +85,18 @@ const sendForm = (form) => {
 
 		const clearForm = () => {
 			for (const el of form.elements) {
+				if (el.id === 'callback_form-phone') {
+					el.style.border = '1px solid #b7b7b7'
+				}
+
+				if (el.id === 'card_leto_mozaika') {
+					el.checked = true;
+				}
+
+				if (el.id === 'm1') {
+					el.checked = true;
+				}
+
 				if (
 					el.tagName.toLowerCase() !== 'button' &&
 					el.type !== 'button' &&
